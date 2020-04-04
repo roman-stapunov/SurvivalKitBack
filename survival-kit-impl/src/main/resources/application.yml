@@ -1,0 +1,36 @@
+server:
+  port: 8090
+
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:postgresql://192.168.0.10:5432/cats
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
+      maximum-pool-size: 20
+      idle-timeout: 30000
+
+jwt:
+  signing.key.secret: mySecret
+  url:
+    token: /auth
+    register: /register
+    refresh: /refresh
+  http.request.header: Authorization
+  token.expiration.in.seconds: 604800
+
+app:
+  aerospike:
+    host: 192.168.0.10
+    port: 3030
+  hibernate:
+    url: jdbc:postgresql://192.168.0.10:5432/cats
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    maximum-pool-size: 20
+    idle-timeout: 30000
+    hibernate-dialect: org.hibernate.dialect.PostgreSQL10Dialect
+    show-sql: true
+    format-sql: true
